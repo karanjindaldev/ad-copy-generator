@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 llm = HuggingFaceEndpoint(
-    repo_id='openai/gpt-oss-20b',
+    repo_id='deepseek-ai/DeepSeek-V4-Flash',
     provider='novita',
     temperature=0
 )
@@ -23,12 +23,24 @@ class AdContent(BaseModel):
 
 parser = PydanticOutputParser(pydantic_object=AdContent)
 
-template = '''You are a marketing expert.
-Based on the provided product name and target audience,
-generate a social media caption, ad headline, and Call to action,
-in the specified format.        
+template = '''You are an expert advertising copywriter. You have been provided with:
+
 product name = {product_name}
 target audience = {target_audience}
+
+Your task is to generate:
+1. A social media caption
+2. An ad headline
+3. A call to action
+
+Guidelines:
+1. Social media caption should be captivating and participatory, and it should be within 150 characters
+2. Ad headline should be simple and memorable, and it should be within 60 characters
+3. CTA should be clear, direct and actionable, and it should be within 2 to 5 words
+4. Adjust your tone according to the target audience.
+5. Avoid overly generic marketing phrases.
+
+The output must follow the specified formatting instructions:
 format instructions = {format_instructions}'''
 
 prompt = PromptTemplate.from_template(template=template,
@@ -39,13 +51,17 @@ chain = prompt | model | parser
 product_name = input('Enter product name: ')
 target_audience = input('Enter target audience: ')
 
-try:
-    result = chain.invoke(input={'product_name': product_name, 'target_audience': target_audience})
+def generate_ad_content():
+    try:
+        result = chain.invoke(input={'product_name': product_name, 'target_audience': target_audience})
+        formatted_result = result.model_dump_json(indent=4)
+        print(formatted_result)
 
-    print(result.model_dump_json())
+        with open('sample_output.json', 'w', encoding='utf-8') as f:
+            f.write(formatted_result)
 
-    with open('sample_output.json', 'w', encoding='utf-8') as f:
-        f.write(result.model_dump_json())
+    except Exception as e:
+        print(f'The following error occured: {e}')
 
-except Exception as e:
-    print(f'The following error occured: {e}')
+if __name__=='__main__':
+    generate_ad_content()
