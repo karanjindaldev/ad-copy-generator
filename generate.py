@@ -35,7 +35,7 @@ Your task is to generate:
 
 Guidelines:
 1. Social media caption should be captivating and participatory, and it should be within 150 characters
-2. Ad headline should be simple and memorable, and it should be within 60 characters
+2. Ad headline should be simple, memorable, focusing on the value the customer will get, and it should be within 60 characters
 3. CTA should be clear, direct and actionable, and it should be within 2 to 5 words
 4. Adjust your tone according to the target audience.
 5. Avoid overly generic marketing phrases.
