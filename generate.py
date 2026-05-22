@@ -9,19 +9,19 @@ load_dotenv()
 llm = HuggingFaceEndpoint(
     repo_id='deepseek-ai/DeepSeek-V4-Flash',
     provider='novita',
-    temperature=0
+    temperature=0.8
 )
 
 model = ChatHuggingFace(
     llm=llm
 )
 
-class AdContent(BaseModel):
-    social_media_caption: str = Field(description='An engaging caption for the social media posts promoting the product')
-    ad_headline: str = Field(description='A short and catchy advertisement headline for the product')
+class AdCopy(BaseModel):
+    social_media_caption: str = Field(description='An engaging social media caption')
+    ad_headline: str = Field(description='A short and catchy advertisement headline')
     call_to_action: str = Field(description='Motivating call to action')
 
-parser = PydanticOutputParser(pydantic_object=AdContent)
+parser = PydanticOutputParser(pydantic_object=AdCopy)
 
 template = '''You are an expert advertising copywriter. You have been provided with:
 
@@ -36,7 +36,7 @@ Your task is to generate:
 Guidelines:
 1. Social media caption should be captivating and participatory, and it should be within 150 characters
 2. Ad headline should be simple, memorable, focusing on the value the customer will get, and it should be within 60 characters
-3. CTA should be clear, direct and actionable, and it should be within 2 to 5 words
+3. CTA should be clear and rewarding, and it should be within 4 to 7 words
 4. Adjust your tone according to the target audience.
 5. Avoid overly generic marketing phrases.
 
