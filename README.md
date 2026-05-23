@@ -22,10 +22,15 @@ Input context was put before tasks and constraints, as this helps the model cond
 
 Explicit task specification reduces ambiguity, hence the control over the output and its reliability increases.
 
-The guidelines mimic real world advertising constraints. They limit the generation space of the model, hence the output becomes more consistent.
+The guidelines mimic real world advertising constraints. They limit the search space of the model, hence the output becomes more consistent.
 
 The constraints were based on my research into the characteristics and optimal lengths of effective marketing captions, headlines, and CTAs.
 
 Finally, format instructions were provided intentionally at the end in order to reinforce structured output generation.
 
 This particular structure removes ambiguity step by step, guiding the model from understanding context to constrained, structured output.
+
+## Other Key Design Choices
+PydanticOutputParser was used as validates data, required fields and constraints unlike JSONOutputParser.
+
+Temperature was set to 0.8 in order to balance consistency and creativity of the LLM's outputs.
