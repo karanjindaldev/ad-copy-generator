@@ -31,6 +31,6 @@ Finally, format instructions were provided intentionally at the end in order to 
 This particular structure removes ambiguity step by step, guiding the model from understanding context to constrained, structured output.
 
 ## Other Key Design Choices
-PydanticOutputParser was used as validates data, required fields and constraints unlike JSONOutputParser.
+PydanticOutputParser was used as it validates data types, required fields and constraints unlike JSONOutputParser.
 
 Temperature was set to 0.8 in order to balance consistency and creativity of the LLM's outputs.
