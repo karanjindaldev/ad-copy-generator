@@ -48,10 +48,7 @@ prompt = PromptTemplate.from_template(template=template,
 
 chain = prompt | model | parser
 
-product_name = input('Enter product name: ')
-target_audience = input('Enter target audience: ')
-
-def generate_ad_content():
+def generate_ad_content(product_name, target_audience):
     try:
         result = chain.invoke(input={'product_name': product_name, 'target_audience': target_audience})
         formatted_result = result.model_dump_json(indent=4)
@@ -64,4 +61,7 @@ def generate_ad_content():
         print(f'The following error occured: {e}')
 
 if __name__=='__main__':
-    generate_ad_content()
+    product_name = input('Enter product name: ')
+    target_audience = input('Enter target audience: ')
+
+    generate_ad_content(product_name, target_audience)
