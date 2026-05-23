@@ -1,7 +1,7 @@
 # Ad Copywriting Assistant
 
 ## Overview
-This app is an AI-powered ad copywriting assistant, built using Python, LangChain, an open-source LLM from HuggingFace (DeepSeek V4 Flash), and prompt engineering. It takes a product name and a target audience, and generates a social media caption, an ad headline, and a CTA (Call to action), in a structured JSON format.
+This app is an AI-powered ad copywriting assistant, built using Python, LangChain, an open-source LLM from HuggingFace (DeepSeek-V4-Flash), and prompt engineering. It takes a product name and a target audience, and generates a social media caption, an ad headline, and a CTA (Call to action), in a structured JSON format.
 
 ## Objectives
 The main focus was to generate effective, audience aware marketing content in a structured way using an LLM.
@@ -33,4 +33,4 @@ This particular structure removes ambiguity step by step, guiding the model from
 ## Other Key Design Choices
 * PydanticOutputParser was used as it enforces schema, data type and required field validation.
 * Temperature was set to 0.8 in order to balance consistency and creativity of the LLM's outputs.
-* DeepSeek V4 Flash was used in order to balance output quality and inference costs.
+* DeepSeek-V4-Flash (158B params) was used in order to balance output quality and inference costs.
