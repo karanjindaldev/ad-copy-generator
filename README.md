@@ -33,4 +33,4 @@ This particular structure removes ambiguity step by step, guiding the model from
 ## Other Key Design Choices
 * PydanticOutputParser was used as it enforces schema, data type and required field validation.
 * Temperature was set to 0.8 in order to balance consistency and creativity of the LLM's outputs.
-* DeepSeek V4 Flash was used in order to balance out output quality and inference costs.
+* DeepSeek V4 Flash was used in order to balance output quality and inference costs.
