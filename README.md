@@ -4,7 +4,8 @@
 This app is an AI-powered ad copywriting assistant, built using Python, LangChain, an open-source LLM from HuggingFace (DeepSeek V4 Flash), and prompt engineering. It takes a product name and a target audience, and generates a social media caption, an ad headline, and a CTA (Call to action), in a structured JSON format.
 
 ## Objectives
-The main focus was to generate effective, audience aware marketing content in a structured way using an LLM.<br>
+The main focus was to generate effective, audience aware marketing content in a structured way using an LLM.
+
 Another key objective was to explore how prompt structure, role definition, constraints and formatting instructions influence the quality of LLM-generated outputs.
 
 ## Prompt Design
@@ -23,7 +24,7 @@ Explicit task specification reduces ambiguity, hence the control over the output
 
 The guidelines mimic real world advertising constraints. They limit the generation space of the model, hence the output becomes more consistent.
 
-The constraints were based on my research that I did, which explored what are the characteristics of good marketing captions, headlines, and CTAs, and what are the optimal lengths for each of these.
+The constraints were based on my research into the characteristics and optimal lengths of effective marketing captions, headlines, and CTAs.
 
 Finally, format instructions were provided intentionally at the end in order to reinforce structured output generation.
 
